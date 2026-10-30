@@ -14,7 +14,7 @@ export default async function ProductPage({ params }) {
   const specs = (rows) => (
     <dl>
       {rows.map(([k, v]) => (
-        <div key={k} className="grid grid-cols-[8rem_1fr] gap-4 border-b border-white/10 py-3 last:border-0">
+        <div key={k} className="grid grid-cols-[8rem_1fr] gap-4 border-b border-gold/15 py-3 last:border-0 rtl:grid-cols-[1fr_8rem]">
           <dt className="text-lilac/60">{k}</dt><dd className="font-bold">{v}</dd>
         </div>
       ))}
@@ -42,13 +42,13 @@ export default async function ProductPage({ params }) {
       </div>) },
   ];
   return (
-    <div className="mx-auto max-w-7xl px-5 pt-28">
+    <div className="mx-auto max-w-7xl px-5 pt-28 pb-20">
       <Link href={`/${locale}/collection`} className="text-sm font-black text-gold-light">← {pt.back}</Link>
       <div className="mt-6 grid gap-10 lg:grid-cols-2">
         <ProductGallery images={p.images} video={p.video} alt={c.name} />
         <div>
           <h1 className="font-display text-4xl font-black md:text-5xl">{c.name}</h1>
-          <div className="glass mt-6 p-6">
+          <div className="glass mt-6 border border-gold/30 p-6">
             <p className="text-sm text-lilac/60">{pt.price}</p>
             <p className="font-display text-3xl font-black text-gold-light">{p.price ? p.price : pt.onRequest}</p>
             <p className="mt-3 text-sm text-lilac/60">{pt.availability}: <span className="font-bold text-lilac">{pt.available}</span></p>
@@ -62,10 +62,10 @@ export default async function ProductPage({ params }) {
         </div>
       </div>
       <section className="mt-16">
-        <h2 className="font-display text-3xl font-black">{pt.media}</h2>
+        <h2 className="font-display text-3xl font-black text-gold-light">{pt.media}</h2>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
-          {p.images.map((src, i) => <img key={i} src={src} alt={`${c.name} ${i + 1}`} loading="lazy" className="glass w-full bg-ink/50 object-contain" />)}
-          <SafeVideo src={p.video} className="glass w-full bg-ink/50" />
+          {p.images.map((src, i) => <img key={i} src={src} alt={`${c.name} ${i + 1}`} loading="lazy" className="glass w-full border border-gold/20 bg-ink/50 object-contain" />)}
+          <SafeVideo src={p.video} className="glass w-full border border-gold/20 bg-ink/50" />
         </div>
       </section>
     </div>

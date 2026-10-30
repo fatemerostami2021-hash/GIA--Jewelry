@@ -20,6 +20,79 @@ body { font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
 .metal { background: linear-gradient(135deg, #0a0610, #2b2236 45%, #0a0610); }
 .hl { background: linear-gradient(100deg, #d4af37, #fff3cf, #d4af37); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: shine 4s linear infinite; }
 
+/* 3D card context — keep the parent grid from clipping tilt */
+.card-3d { transform-style: preserve-3d; backface-visibility: hidden; }
+.line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* ===== HexRail — clickable honeycomb card styles (the rail itself is
+   driven by JS RAF in components/HexRail.jsx, no CSS animation here) ===== */
+.hex-card {
+  width: 200px;
+  height: 230px;
+  flex: 0 0 200px;
+  min-width: 200px;
+  position: relative;
+  cursor: pointer;
+  display: block;
+}
+.hex-card:nth-child(odd) { margin-top: 0; }
+.hex-card:nth-child(even) { margin-top: -22px; }
+.hex-frame {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #d4af37 0%, #f2d98a 50%, #d4af37 100%);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  transition: filter .4s ease;
+}
+.hex-img {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  object-fit: cover;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+.hex-overlay {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background: linear-gradient(to top, rgba(10,6,16,.95) 0%, rgba(10,6,16,.5) 30%, transparent 60%);
+  display: grid;
+  place-items: end center;
+  padding-bottom: 26px;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+.hex-card:hover .hex-overlay { opacity: 1; }
+.hex-card:hover .hex-frame { filter: drop-shadow(0 0 18px rgba(212,175,55,.7)); }
+@media (max-width: 768px) {
+  .hex-card { width: 150px; height: 173px; flex: 0 0 150px; min-width: 150px; }
+  .hex-card:nth-child(even) { margin-top: -16px; }
+}
+
+/* ===== Swiper custom bullets for HeroSlider ===== */
+.swiper-pagination.gia-pagination .gia-bullet {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,.25);
+  margin: 0 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.swiper-pagination.gia-pagination .gia-bullet-active {
+  background: #d4af37;
+  width: 28px;
+  box-shadow: 0 0 12px rgba(212,175,55,.6);
+}
+
 @keyframes shine { to { background-position: -200% 0; } }
 @keyframes twinkle { 0%, 100% { opacity: .15; transform: scale(.5); } 50% { opacity: 1; transform: scale(1.2); } }
 @keyframes wordIn { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }

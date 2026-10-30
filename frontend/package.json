@@ -5,15 +5,18 @@
     "dev": "node scripts/dev.mjs",
     "dev:plain": "next dev -p 4010 -H 127.0.0.1",
     "images": "node scripts/optimize-images.mjs",
+    "cleanup": "node scripts/cleanup-originals.mjs",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "vercel-build": "next build"
   },
   "dependencies": {
     "gsap": "^3.12.5",
-    "three": "^0.170.0",
     "next": "^15.1.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "swiper": "^11.2.10",
+    "three": "^0.170.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0",
