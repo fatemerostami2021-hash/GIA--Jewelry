@@ -35,3 +35,7 @@ yarn-error.log*
 
 # os
 Thumbs.db
+
+# exclude zip from commit
+GIA-Jewelry.zip
+agent-handoff.zip
