@@ -1,0 +1,202 @@
+[
+ {
+  "slug": "ctf-pink-star-diamond",
+  "category": "diamond",
+  "name_en": "CTF Pink (Pink Star) Diamond",
+  "name_fa": "الماس صورتی «پینک استار»",
+  "stone_type_en": "Diamond",
+  "stone_type_fa": "الماس",
+  "color_en": "Fancy Vivid Pink",
+  "color_fa": "صورتی فانتزی ویوید",
+  "carat": 59.6,
+  "clarity_en": "Internally Flawless",
+  "clarity_fa": "بی‌نقص داخلی (IF)",
+  "cut_en": "Oval mixed-cut",
+  "cut_fa": "بیضی، تراش ترکیبی",
+  "origin_en": "Africa — mined by De Beers in 1999 (132.5 ct rough)",
+  "origin_fa": "آفریقا — استخراج‌شده توسط دی‌بیرز در ۱۹۹۹ (سنگ خام ۱۳۲٫۵ قیراط)",
+  "made_en": "Cut and polished over about two years",
+  "made_fa": "حدود دو سال تراش و پولیش",
+  "is_natural": true,
+  "treatment_en": "Natural — graded by GIA; see the report for treatment details",
+  "treatment_fa": "طبیعی — درجه‌بندی GIA؛ جزئیات درمان در گزارش",
+  "cert_no": null,
+  "lab": "GIA",
+  "price_usd": 71200000,
+  "price_note_en": "Auction record, Sotheby's Hong Kong, 4 April 2017 (incl. buyer's premium)",
+  "price_note_fa": "رکورد مزایده، ساتبیز هنگ‌کنگ، ۴ آوریل ۲۰۱۷ (با کارمزد خریدار)",
+  "stock_en": "Reference stone — private sale on request",
+  "stock_fa": "سنگ مرجع — فروش خصوصی با درخواست",
+  "image": "stone-diamond.jpg",
+  "model_url": "/media/models/stone-diamond.glb",
+  "video_url": "/media/videos/stone-diamond.mp4",
+  "links": [
+   {
+    "label": "Sotheby's — five most expensive pink diamonds",
+    "url": "https://www.sothebys.com/en/articles/the-five-most-expensive-pink-diamonds"
+   },
+   {
+    "label": "NPR/WGBH — sale report",
+    "url": "https://www.wgbh.org/news/2017-04-05/pink-star-diamond-sells-for-71-million-smashing-auction-record"
+   },
+   {
+    "label": "GIA Report Check",
+    "url": "https://www.gia.edu/report-check-landing"
+   },
+   {
+    "label": "De Beers Group",
+    "url": "https://www.debeersgroup.com"
+   }
+  ],
+  "description_en": "The largest Internally Flawless Fancy Vivid Pink diamond GIA has graded, and the stone that set the world auction record for any diamond or jewel in 2017.",
+  "description_fa": "بزرگ‌ترین الماس صورتی فانتزی ویوید با درجهٔ بی‌نقص داخلی که GIA تاکنون درجه‌بندی کرده، و سنگی که در ۲۰۱۷ رکورد مزایده جهانی هر الماس و جواهری را شکست.",
+  "hex": "#ff4f9a"
+ },
+ {
+  "slug": "sunrise-ruby",
+  "category": "ruby",
+  "name_en": "Sunrise Ruby",
+  "name_fa": "یاقوت سرخ «سان‌رایز»",
+  "stone_type_en": "Ruby",
+  "stone_type_fa": "یاقوت سرخ",
+  "color_en": "Pigeon's-blood red",
+  "color_fa": "قرمز خون کبوتر",
+  "carat": 25.59,
+  "clarity_en": "See laboratory report",
+  "clarity_fa": "طبق گزارش آزمایشگاه",
+  "cut_en": "Cushion",
+  "cut_fa": "کوشن",
+  "origin_en": "Burma (Myanmar)",
+  "origin_fa": "برمه (میانمار)",
+  "made_en": "Set in a ring by Cartier",
+  "made_fa": "نشانده‌شده در انگشتر توسط کارتیه",
+  "is_natural": true,
+  "treatment_en": "Untreated (unheated)",
+  "treatment_fa": "بدون درمان (بدون حرارت)",
+  "cert_no": null,
+  "lab": "Gübelin Gem Lab & SSEF (as reported by the trade)",
+  "price_usd": 30300000,
+  "price_note_en": "Sotheby's Geneva, 12 May 2015 — a world record for a ruby at the time",
+  "price_note_fa": "ساتبیز ژنو، ۱۲ مه ۲۰۱۵ — در آن زمان رکورد جهانی یاقوت سرخ",
+  "stock_en": "Reference stone — private sale on request",
+  "stock_fa": "سنگ مرجع — فروش خصوصی با درخواست",
+  "image": "stone-ruby.jpg",
+  "model_url": "/media/models/stone-ruby.glb",
+  "video_url": "/media/videos/stone-ruby.mp4",
+  "links": [
+   {
+    "label": "National Jeweler — sale report",
+    "url": "https://nationaljeweler.com/articles/8057-sunrise-ruby-lights-up-the-auction-world"
+   },
+   {
+    "label": "Bloomberg — Sotheby's Geneva sale",
+    "url": "https://www.bloomberg.com/news/articles/2015-05-13/cartier-ruby-sets-record-in-161-million-sotheby-s-jewelry-sale"
+   },
+   {
+    "label": "SSEF Swiss Gemmological Institute",
+    "url": "https://www.ssef.ch"
+   },
+   {
+    "label": "Gübelin Gem Lab",
+    "url": "https://gubelin.com"
+   }
+  ],
+  "description_en": "An untreated Burmese ruby of the most desirable pigeon's-blood red, mounted by Cartier, which tripled the previous ruby auction record.",
+  "description_fa": "یاقوت سرخ برمه‌ای بدون درمان با مطلوب‌ترین رنگ خون کبوتر، نشانده‌شده توسط کارتیه، که رکورد پیشین مزایده یاقوت سرخ را بیش از سه برابر کرد.",
+  "hex": "#d10f2f"
+ },
+ {
+  "slug": "blue-belle-of-asia",
+  "category": "sapphire",
+  "name_en": "Blue Belle of Asia",
+  "name_fa": "یاقوت کبود «بلو بل آو آسیا»",
+  "stone_type_en": "Sapphire",
+  "stone_type_fa": "یاقوت کبود",
+  "color_en": "Blue",
+  "color_fa": "آبی",
+  "carat": 392.52,
+  "clarity_en": "See laboratory report",
+  "clarity_fa": "طبق گزارش آزمایشگاه",
+  "cut_en": "Cushion",
+  "cut_fa": "کوشن",
+  "origin_en": "Ratnapura, Sri Lanka (Ceylon) — found in 1926",
+  "origin_fa": "رتناپورا، سریلانکا (سیلان) — کشف در ۱۹۲۶",
+  "made_en": "Set in a diamond necklace with a tassel pendant",
+  "made_fa": "نشانده‌شده در گردنبند الماس",
+  "is_natural": true,
+  "treatment_en": "Untreated",
+  "treatment_fa": "بدون درمان",
+  "cert_no": null,
+  "lab": "See Christie's catalogue",
+  "price_usd": 17300000,
+  "price_note_en": "Christie's Geneva, 11 November 2014 — a world record for a sapphire at the time",
+  "price_note_fa": "کریستیز ژنو، ۱۱ نوامبر ۲۰۱۴ — در آن زمان رکورد جهانی یاقوت کبود",
+  "stock_en": "Reference stone — private sale on request",
+  "stock_fa": "سنگ مرجع — فروش خصوصی با درخواست",
+  "image": "stone-sapphire.jpg",
+  "model_url": "/media/models/stone-sapphire.glb",
+  "video_url": "/media/videos/stone-sapphire.mp4",
+  "links": [
+   {
+    "label": "Guinness World Records",
+    "url": "https://guinnessworldrecords.com/world-records/62544-most-expensive-sapphire"
+   },
+   {
+    "label": "National Jeweler — sale report",
+    "url": "https://www.nationaljeweler.com/fashion/jewelry-auctions/1481-blue-belle-rings-in-record-sale-for-christie-s"
+   },
+   {
+    "label": "Christie's",
+    "url": "https://www.christies.com"
+   }
+  ],
+  "description_en": "A 392.52-carat untreated Ceylon sapphire, one of the largest faceted blue sapphires on record, sold by Christie's in Geneva.",
+  "description_fa": "یاقوت کبود ۳۹۲٫۵۲ قیراطی سیلان بدون درمان، از بزرگ‌ترین یاقوت‌های کبود تراش‌خورده ثبت‌شده، که کریستیز در ژنو فروخت.",
+  "hex": "#1c46d6"
+ },
+ {
+  "slug": "rockefeller-emerald",
+  "category": "emerald",
+  "name_en": "Rockefeller Emerald",
+  "name_fa": "زمرد «راکفلر»",
+  "stone_type_en": "Emerald",
+  "stone_type_fa": "زمرد",
+  "color_en": "Vivid green",
+  "color_fa": "سبز زنده",
+  "carat": 18.04,
+  "clarity_en": "Eye-clean (exceptional for Colombian emerald)",
+  "clarity_fa": "بدون ناخالصی مرئی (استثنایی برای زمرد کلمبیا)",
+  "cut_en": "Rectangular step cut (emerald cut)",
+  "cut_fa": "تراش پله‌ای مستطیلی (امرالد کات)",
+  "origin_en": "Colombia",
+  "origin_fa": "کلمبیا",
+  "made_en": "Ring renamed Rockefeller-Winston Emerald after Harry Winston's purchase",
+  "made_fa": "پس از خرید هری وینستون، با نام «راکفلر-وینستون» شناخته شد",
+  "is_natural": true,
+  "treatment_en": "No indications of treatment (Gübelin Gem Lab)",
+  "treatment_fa": "بدون نشانهٔ درمان (آزمایشگاه Gübelin)",
+  "cert_no": null,
+  "lab": "Gübelin Gem Lab",
+  "price_usd": 5500000,
+  "price_note_en": "Christie's New York, June 2017 — about US$305,000 per carat, an emerald record at the time",
+  "price_note_fa": "کریستیز نیویورک، ژوئن ۲۰۱۷ — حدود ۳۰۵ هزار دلار برای هر قیراط، رکورد زمرد در آن زمان",
+  "stock_en": "Reference stone — private sale on request",
+  "stock_fa": "سنگ مرجع — فروش خصوصی با درخواست",
+  "image": "stone-emerald.jpg",
+  "model_url": "/media/models/stone-emerald.glb",
+  "video_url": "/media/videos/stone-emerald.mp4",
+  "links": [
+   {
+    "label": "Gübelin — The Emerald",
+    "url": "https://gubelin.com/pages/emerald"
+   },
+   {
+    "label": "Christie's",
+    "url": "https://www.christies.com"
+   }
+  ],
+  "description_en": "An 18.04-carat Colombian emerald with exceptional clarity and no indications of treatment, from the Rockefeller family collection.",
+  "description_fa": "زمرد ۱۸٫۰۴ قیراطی کلمبیایی با شفافیت استثنایی و بدون نشانهٔ درمان، از مجموعهٔ خانوادهٔ راکفلر.",
+  "hex": "#0b9f62"
+ }
+]
