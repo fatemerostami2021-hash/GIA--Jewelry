@@ -3,6 +3,32 @@
 Last updated: 2026-10-30 | Branch: master | Working dir: /home/z/my-project/GIA--Jewelry-main
 Updated by: GLM (z.ai)
 
+## V7.2 — JewelStage (pinned 3D film) REMOVED at user request; replaced by `components/ScrollCompanion.jsx`
+(small side window with `ruby-scroll-companion.webp` that travels hero->footer and pans across the picture on scroll).
+
+## V7 (2026-10-31) — 3D jewellery film, mega menu, gemstone guide, header rebuild
+
+User asks: 3D/GSAP home animation from the ruby reference images; mega menu with stone/jewel images;
+slider must show whole photos; visible text animation/typing; header: remove e-mail + street address,
+keep phone + social icons, nav items bob on hover, blinking logo, brand "GIA Jewelry"; pages linked & consistent.
+
+Done:
+- [x] `lib/jewelStage.js` + `components/JewelStage.jsx` — pinned ScrollTrigger film (plain Three.js, one GSAP master
+  timeline): showroom intro, necklace, earrings, ring, bracelet, full collection, model photo where the pieces settle on her.
+  Pieces are cut-out photos (`public/media/cutouts/*.webp`) rendered as 3-layer slabs with a moving-highlight shader (NOT real meshes).
+  Drag to rotate, zoom +/-, reset, beat chips, static fallback for reduced motion / no WebGL, lighter mobile path.
+- [x] `components/Header.jsx`, `MegaMenu.jsx`, `Logo.jsx`, `SocialIcons.jsx`, `GemIcon.jsx`, `ShapeIcon.jsx`.
+- [x] `components/HeroSlider.jsx` — object-contain + blurred backdrop (full image visible), typed caption, progress line, arrows/dots.
+- [x] `components/TypeText.jsx`; typing line in `Hero.jsx`.
+- [x] `/[locale]/gemstones` + `/[locale]/gemstones/[slug]` (12 stones, EN/FA, hardness chart, compare tool, shapes, care).
+  Data: `lib/stones.js`. Strings: `lib/ui.js`. Non-affiliation disclaimer on every guide page.
+- [x] `components/ExploreStrip.jsx` in layout (cross-links on every page); home gets a gemstone-guide teaser.
+- [x] `lib/dict.js` brand -> "GIA Jewelry"; nav.shop -> "Gem Store".
+- [x] v7.1: home page guards items lacking locale text (`nameOf`).
+- [x] Verified: `next build` ok; /en /fa /gemstones /gemstones/[slug] /collection /shop /contact return 200; header HTML has no e-mail/address.
+- [ ] NOT verified: WebGL visuals in a real browser (no headless browser here). Check landing positions in `LANDING` (lib/jewelStage.js).
+- Photos still missing for: sapphire, garnet, tourmaline, spinel, tanzanite, amethyst, aquamarine, peridot (SVG gem icons used).
+
 ## V6 (2026-10-30 fifth follow-up) — RAF-driven hex marquee + restrained slider zoom
 
 User feedback:

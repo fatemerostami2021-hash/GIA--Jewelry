@@ -3,6 +3,8 @@ import { useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import TypeText from './TypeText';
+import { ui } from '@/lib/ui';
 
 /**
  * Hero — split layout: text on the right (RTL: left), video on the other side.
@@ -51,7 +53,7 @@ export default function Hero({ t, locale, videoSrc }) {
   return (
     <section
       ref={ref}
-      className="mx-auto grid min-h-[calc(100vh-4rem)] max-w-7xl grid-cols-1 items-center gap-10 px-5 pb-20 pt-28 lg:grid-cols-2 lg:pt-32"
+      className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-5 pb-20 pt-14 lg:grid-cols-2 lg:pt-16"
     >
       {/* === TEXT PANEL === */}
       <div className="order-2 lg:order-1">
@@ -72,12 +74,16 @@ export default function Hero({ t, locale, videoSrc }) {
             </span>
           ))}
         </h1>
-        <p className="hero-rise mt-7 max-w-md text-lg font-black leading-8 text-lilac/95 [text-shadow:0_2px_20px_rgba(0,0,0,.9)]">
+        <p className="hero-rise mt-6 min-h-[2.2rem] font-display text-2xl font-black text-gold-light md:text-3xl">
+          {ui[locale].typingPrefix}{' '}
+          <TypeText words={ui[locale].typing} className="hl" />
+        </p>
+        <p className="hero-rise mt-5 max-w-md text-lg font-black leading-8 text-lilac/95 [text-shadow:0_2px_20px_rgba(0,0,0,.9)]">
           {t.sub}
         </p>
         <div className="hero-rise mt-9 flex flex-wrap gap-4">
           <a
-            href="#collection"
+            href="#home-collection"
             className="rounded-full bg-gold px-9 py-3.5 text-sm font-black text-ink transition-all hover:bg-gold-light hover:shadow-[0_0_30px_rgba(242,217,138,.55)]"
           >
             {t.cta}

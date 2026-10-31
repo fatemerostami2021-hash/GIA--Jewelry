@@ -3,6 +3,7 @@ import '../globals.css';
 import BackgroundVideo from '@/components/BackgroundVideo';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import ExploreStrip from '@/components/ExploreStrip';
 import FloatingSocial from '@/components/FloatingSocial';
 import { dict, locales } from '@/lib/dict';
 
@@ -31,6 +32,7 @@ export default async function Layout({ children, params }) {
         <BackgroundVideo />
         <Header locale={locale} t={t} />
         <main>{children}</main>
+        <ExploreStrip locale={locale} />
         <Footer t={t} />
         <FloatingSocial />
       </body>

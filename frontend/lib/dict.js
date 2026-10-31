@@ -4,9 +4,9 @@ export const sections = ['auctions', 'private-sales', 'sell', 'finance', 'labs',
 // Page blocks: kind = steps | cards | faq; items = [title, text]
 export const dict = {
   en: {
-    meta: { title: 'GIA — Fine Gemstones & Jewellery', desc: 'Certified gemstones and signature jewellery, curated in Shiraz.' },
-    brand: 'GIA',
-    nav: { collection: 'Collection', shop: 'Gemstones', auctions: 'Auctions', 'private-sales': 'Private Sales', sell: 'Sell', finance: 'Finance', labs: 'Labs & Sources', contact: 'Contact' },
+    meta: { title: 'GIA Jewelry — Fine Gemstones & Jewellery', desc: 'Certified gemstones and signature jewellery, curated in Shiraz.' },
+    brand: 'GIA Jewelry',
+    nav: { collection: 'Collection', shop: 'Gem Store', auctions: 'Auctions', 'private-sales': 'Private Sales', sell: 'Sell', finance: 'Finance', labs: 'Labs & Sources', contact: 'Contact' },
     hero: { eyebrow: 'Fine gemstones & jewellery · Shiraz', text: 'The centre for buying and selling fine jewellery and gemstones', hl: ['centre', 'buying', 'selling', 'fine', 'jewellery', 'gemstones'], sub: 'Certified stones and signature jewellery, documented by independent laboratories and the world’s leading auction houses.', cta: 'Explore the shop', cta2: 'Sell with us' },
     collection: { title: 'Collection', sub: 'Signature pieces, shaped by hand and set with exceptional stones.', view: 'View details', filters: { all: 'All', jewellery: 'Jewellery', stone: 'Gemstones' }, all: 'View the full collection', intro: 'Every piece, with its details, photos and video.' },
     product: { tabs: { overview: 'Overview', summary: 'Summary', details: 'Full details' }, price: 'Price', onRequest: 'Price on request', availability: 'Availability', available: 'Available to order', buy: 'Request to buy', ask: 'Ask a question', highlights: 'Highlights', facts: 'Key facts', about: 'About this piece', specs: 'Specifications', media: 'Photos & video', back: 'Back to collection', assure: ['Insured delivery', 'Every detail confirmed in writing before purchase'] },
@@ -38,9 +38,9 @@ export const dict = {
     footer: { rights: 'All rights reserved.', address: 'Zargari Street, Shiraz', design: 'Website design', note: 'Independent retailer. Not affiliated with the Gemological Institute of America.' },
   },
   fa: {
-    meta: { title: 'GIA — سنگ‌های قیمتی و جواهرات', desc: 'سنگ‌های گواهی‌دار و جواهرات خاص، گزینش‌شده در شیراز.' },
-    brand: 'GIA',
-    nav: { collection: 'کالکشن', shop: 'سنگ‌های قیمتی', auctions: 'مزایده‌ها', 'private-sales': 'فروش خصوصی', sell: 'فروش جواهر', finance: 'تأمین مالی', labs: 'آزمایشگاه‌ها و منابع', contact: 'تماس' },
+    meta: { title: 'GIA Jewelry — سنگ‌های قیمتی و جواهرات', desc: 'سنگ‌های گواهی‌دار و جواهرات خاص، گزینش‌شده در شیراز.' },
+    brand: 'GIA Jewelry',
+    nav: { collection: 'کالکشن', shop: 'فروشگاه سنگ', auctions: 'مزایده‌ها', 'private-sales': 'فروش خصوصی', sell: 'فروش جواهر', finance: 'تأمین مالی', labs: 'آزمایشگاه‌ها و منابع', contact: 'تماس' },
     hero: { eyebrow: 'سنگ‌های قیمتی و جواهرات · شیراز', text: 'مرکز خرید و فروش جواهرات و سنگ‌های قیمتی', hl: ['خرید', 'فروش', 'جواهرات', 'سنگ‌های', 'قیمتی'], sub: 'سنگ‌های گواهی‌دار و جواهرات خاص، مستند به آزمایشگاه‌های مستقل و برترین خانه‌های مزایده جهان.', cta: 'ورود به فروشگاه', cta2: 'فروش به ما' },
     collection: { title: 'کالکشن', sub: 'قطعات خاص، ساخته‌شده با دست و نشانده با سنگ‌های استثنایی.', view: 'مشاهدهٔ جزئیات', filters: { all: 'همه', jewellery: 'جواهرات', stone: 'سنگ‌ها' }, all: 'مشاهدهٔ کل کالکشن', intro: 'هر قطعه، با جزئیات، عکس و ویدیو.' },
     product: { tabs: { overview: 'نگاه کلی', summary: 'خلاصه', details: 'جزئیات کامل' }, price: 'قیمت', onRequest: 'قیمت با استعلام', availability: 'موجودی', available: 'امکان سفارش', buy: 'درخواست خرید', ask: 'پرسش دربارهٔ این قطعه', highlights: 'ویژگی‌های برجسته', facts: 'اطلاعات کلیدی', about: 'دربارهٔ این قطعه', specs: 'مشخصات', media: 'عکس و ویدیو', back: 'بازگشت به کالکشن', assure: ['ارسال بیمه‌شده', 'همهٔ جزئیات پیش از خرید کتباً تأیید می‌شود'] },
