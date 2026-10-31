@@ -4,7 +4,8 @@
   "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/.next",
   "installCommand": "cd frontend && npm install",
-  "regions": ["sin1", "fra1", "iad1"],
+ "regions": ["iad1"],
+
   "headers": [
     {
       "source": "/media/(.*)",
