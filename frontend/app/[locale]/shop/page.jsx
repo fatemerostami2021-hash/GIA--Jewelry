@@ -1,49 +1,63 @@
 import Link from 'next/link';
 import GemCard from '@/components/GemCard';
+import CatFilter from '@/components/CatFilter';
+import PageHero from '@/components/PageHero';
+import Reveal from '@/components/Reveal';
 import Stagger from '@/components/Stagger';
 import { getGems } from '@/lib/api';
 import { dict } from '@/lib/dict';
-
-export const dynamic = 'force-dynamic';
+import { pageHeroes } from '@/lib/site';
+import { shopNotes } from '@/lib/extra';
+import { stoneBySlug } from '@/lib/stones';
 
 /**
- * Shop (Gemstones) page. Same visual language as the Collection page:
- * eyebrow, big title, refined gold chips, gold cards grid.
+ * Gem Store — static page (fast). Hero with video + photo, instant category filter, a stone-guide link
+ * for every category, buying notes, and links onward to the collection and the gemstone guide.
  */
-export default async function Shop({ params, searchParams }) {
+export default async function Shop({ params }) {
   const { locale } = await params;
-  const { c } = await searchParams;
   const t = dict[locale];
-  const gems = await getGems(c);
-  const chip = (active) =>
-    `rounded-full border-2 px-5 py-1.5 text-sm font-black transition-all ${
-      active ? 'border-gold bg-gold text-ink shadow-[0_0_25px_rgba(212,175,55,.45)]' : 'border-gold/40 bg-ink/50 text-lilac/80 hover:border-gold hover:text-gold-light'
-    }`;
+  const n = shopNotes[locale];
+  const gems = await getGems();
+  const cats = Object.entries(t.shop.categories).map(([k, label]) => ({ k, label }));
   return (
-    <div className="mx-auto max-w-7xl px-5 pt-32 pb-24">
-      <Stagger y={30} stagger={0.15}>
-        <p className="mb-3 text-xs font-bold uppercase tracking-[.3em] text-gold-light rtl:tracking-normal">
-          ✦ {locale === 'fa' ? 'سنگ‌های شاخص' : 'Landmark stones'}
-        </p>
-        <h1 className="font-display text-5xl font-black md:text-7xl">
-          <span className="hl">{t.shop.title}</span>
-        </h1>
-        <p className="mt-5 max-w-2xl text-lg font-bold leading-8 text-lilac/80">{t.shop.intro}</p>
-        <div className="mt-9 flex flex-wrap gap-3">
-          <Link href={`/${locale}/shop`} className={chip(!c)}>{t.shop.all}</Link>
-          {Object.entries(t.shop.categories).map(([k, v]) => (
-            <Link key={k} href={`/${locale}/shop?c=${k}`} className={chip(c === k)}>{v}</Link>
+    <>
+      <PageHero hero={pageHeroes.shop} eyebrow={n.eyebrow} title={t.shop.title} text={t.shop.intro}>
+        <Link href={`/${locale}/collection?k=jewellery`} className="rounded-full bg-gold px-7 py-3 text-sm font-black text-ink hover:bg-gold-light">{n.collection}</Link>
+        <Link href={`/${locale}/gemstones`} className="rounded-full border-2 border-gold/60 px-7 py-3 text-sm font-black text-gold-light hover:bg-gold/15">{n.guide}</Link>
+      </PageHero>
+
+      <div className="mx-auto max-w-7xl px-5 pb-24 pt-6">
+        <CatFilter chips={cats} allLabel={t.shop.all} param="c">
+          {gems.map((g, i) => (
+            <div key={g.slug} data-cat={g.category}>
+              <GemCard gem={g} locale={locale} index={i} view={t.collection.view} />
+              {stoneBySlug(g.category) && (
+                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 px-1 text-xs font-black text-gold">
+                  <Link href={`/${locale}/gemstones/${g.category}`} className="hover:text-gold-light">✦ {n.learn}</Link>
+                  <Link href={`/${locale}/collection?k=jewellery`} className="hover:text-gold-light">✦ {n.collection}</Link>
+                </div>
+              )}
+            </div>
           ))}
-        </div>
-      </Stagger>
+        </CatFilter>
 
-      {gems.length === 0 && <p className="mt-12 text-lilac/70">{t.shop.empty}</p>}
-
-      <div className="mt-12 grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {gems.map((g, i) => (
-          <GemCard key={g.slug} gem={g} locale={locale} index={i} view={t.collection.view} />
-        ))}
+        <section className="mt-20">
+          <Reveal><h2 className="font-display text-3xl font-black md:text-4xl"><span className="hl">{n.h}</span></h2></Reveal>
+          <Stagger className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {n.items.map(([h, d]) => (
+              <div key={h} className="glass p-6">
+                <h3 className="text-lg font-black text-gold-light">{h}</h3>
+                <p className="mt-2 leading-7 text-lilac/80">{d}</p>
+              </div>
+            ))}
+          </Stagger>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Link href={`/${locale}/contact`} className="rounded-full border-2 border-gold/60 px-7 py-3 text-sm font-black text-gold-light hover:bg-gold/15">{n.ask}</Link>
+            <Link href={`/${locale}/auctions`} className="rounded-full border border-white/30 px-7 py-3 text-sm font-black text-lilac/90 hover:border-gold">{t.nav.auctions}</Link>
+          </div>
+        </section>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,50 +1,26 @@
 'use client';
-import { usePathname } from 'next/navigation';
-import { useEffect, useRef, useState } from 'react';
-import { pageVideos } from '@/lib/site';
+import { useEffect, useRef } from 'react';
+import { globalVideo, globalPoster } from '@/lib/site';
 
-// One background video per page (only the current page's file is loaded).
-// The HOME page never shows a background video — its hero has its own
-// framed video on the right side of the text. The home background is just
-// the dark-plum gradient with a faint gold radial accent.
-const NO_VIDEO = new Set(['home', '', undefined]);
-
+/**
+ * BackgroundVideo — ONE video behind every page. It lives in the layout, so navigating never
+ * restarts it. It starts after the page has loaded (idle), skips Data-Saver and reduced-motion.
+ */
 export default function BackgroundVideo() {
-  const path = usePathname();
-  const key = path.split('/')[2] || 'home';
-  const src = NO_VIDEO.has(key) ? null : pageVideos[key];
   const ref = useRef(null);
-  const [badSrc, setBadSrc] = useState('');
   useEffect(() => {
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) ref.current?.pause();
-  }, [src]);
-
+    const v = ref.current;
+    if (!v) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches || (navigator.connection && navigator.connection.saveData)) return;
+    const start = () => { v.src = globalVideo; v.play().catch(() => {}); };
+    const run = () => (window.requestIdleCallback ? window.requestIdleCallback(start, { timeout: 2500 }) : setTimeout(start, 800));
+    if (document.readyState === 'complete') run(); else window.addEventListener('load', run, { once: true });
+  }, []);
   return (
     <div className="fixed inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,#2a1530_0%,#0a0610_70%)]">
-      {src && badSrc !== src && (
-        <video
-          key={src}
-          ref={ref}
-          src={src}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          onError={() => setBadSrc(src)}
-          className="h-full w-full object-cover opacity-55"
-        />
-      )}
-      {/* A darkening overlay so the text remains readable above the video */}
+      <video ref={ref} muted loop playsInline preload="none" poster={globalPoster} aria-hidden className="h-full w-full object-cover opacity-50" />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/85 via-plum/40 to-ink/90" />
-      {/* Subtle gold radial accent to keep the brand warmth */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(circle at 50% 30%, rgba(212,175,55,.07), transparent 55%)',
-        }}
-      />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(circle at 50% 30%, rgba(212,175,55,.07), transparent 55%)' }} />
     </div>
   );
 }

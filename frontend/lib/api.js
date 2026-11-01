@@ -1,8 +1,10 @@
 import local from './gems.json';
 
-const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
+const ENV_API = process.env.NEXT_PUBLIC_API_URL || '';
+const API = ENV_API || 'http://localhost:4000';
 
 async function get(path) {
+  if (!ENV_API) return null; // no backend configured -> bundled data (static, instant)
   try {
     const r = await fetch(`${API}${path}`, { cache: 'no-store' });
     return r.ok ? await r.json() : null;

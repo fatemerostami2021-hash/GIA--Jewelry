@@ -1,3 +1,4 @@
+import { locales } from '@/lib/dict';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import GemIcon from '@/components/GemIcon';
@@ -5,7 +6,6 @@ import Stagger from '@/components/Stagger';
 import { stones, stoneBySlug, faDigits } from '@/lib/stones';
 import { ui } from '@/lib/ui';
 
-export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }) {
   const { locale, slug } = await params;
@@ -14,6 +14,8 @@ export async function generateMetadata({ params }) {
 }
 
 /** Gemstone guide — one stone: key properties, about, care, and links onward. */
+export const generateStaticParams = () => locales.flatMap((locale) => stones.map((s) => ({ locale, slug: s.slug })));
+
 export default async function StonePage({ params }) {
   const { locale, slug } = await params;
   const s = stoneBySlug(slug);

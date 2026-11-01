@@ -1,3 +1,5 @@
+import { getCollection } from '@/lib/collection';
+import { locales } from '@/lib/dict';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import DetailTabs from '@/components/DetailTabs';
@@ -5,6 +7,8 @@ import ProductGallery from '@/components/ProductGallery';
 import SafeVideo from '@/components/SafeVideo';
 import { dict } from '@/lib/dict';
 import { findItem } from '@/lib/collection';
+
+export const generateStaticParams = () => locales.flatMap((locale) => getCollection().map((p) => ({ locale, slug: p.slug })));
 
 export default async function ProductPage({ params }) {
   const { locale, slug } = await params;

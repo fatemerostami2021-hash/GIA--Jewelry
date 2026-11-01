@@ -108,7 +108,7 @@ export default function Hero({ t, locale, videoSrc }) {
               muted
               loop
               playsInline
-              preload="auto"
+              preload="metadata"
               className="h-full w-full object-cover"
             />
           ) : (

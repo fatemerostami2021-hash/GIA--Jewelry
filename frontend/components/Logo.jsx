@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import { gsap } from 'gsap';
 
 /**
@@ -9,6 +9,7 @@ import { gsap } from 'gsap';
  */
 export default function Logo({ name = 'GIA', sub = 'Jewelry' }) {
   const ref = useRef(null);
+  const rid = useId().replace(/:/g, '');
   useEffect(() => {
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const ctx = gsap.context(() => {
@@ -25,7 +26,14 @@ export default function Logo({ name = 'GIA', sub = 'Jewelry' }) {
   }, []);
   return (
     <span ref={ref} className="logo group flex items-center gap-2.5" aria-label={`${name} ${sub}`}>
-      <svg viewBox="0 0 48 48" className="logo-gem h-10 w-10 overflow-visible" fill="none" stroke="#d4af37" strokeWidth="1.8" aria-hidden>
+      <span className="relative grid h-[58px] w-[58px] shrink-0 place-items-center">
+        <svg viewBox="0 0 64 64" className="logo-ring absolute inset-0 h-full w-full" aria-hidden>
+          <defs><path id={`${rid}c`} d="M32 32m-25 0a25 25 0 1 1 50 0a25 25 0 1 1-50 0" /></defs>
+          <text fill="#d4af37" fontSize="5.4" fontWeight="700" letterSpacing=".6" fontFamily="Georgia, serif">
+            <textPath href={`#${rid}c`} textLength="154" lengthAdjust="spacing">GIA JEWELRY ✦ FINE GEMSTONES ✦ </textPath>
+          </text>
+        </svg>
+        <svg viewBox="0 0 48 48" className="logo-gem relative h-8 w-8 overflow-visible" fill="none" stroke="#d4af37" strokeWidth="1.8" aria-hidden>
         <path data-fill d="M24 4 40 16 24 44 8 16Z" fill="#a855f7" fillOpacity=".5" stroke="none" />
         <path className="facet f1" d="M8 16 18 16 24 4Z" fill="#fff" stroke="none" />
         <path className="facet f2" d="M18 16 30 16 24 4Z" fill="#f2d98a" stroke="none" />
@@ -39,7 +47,8 @@ export default function Logo({ name = 'GIA', sub = 'Jewelry' }) {
           <path className="logo-star s2" d="M6 22l.8 2.200L9 25l-2.200.8L6 28l-.8-2.200L3 25l2.200-.8z" />
           <path className="logo-star s3" d="M30 38l.7 1.800L32.500 40.500l-1.800.7L30 43l-.7-1.800-1.800-.7 1.800-.7z" />
         </g>
-      </svg>
+        </svg>
+      </span>
       <span dir="ltr" className="flex items-baseline gap-1.5 leading-none">
         <span className="logo-word font-display text-2xl font-black tracking-[.22em] sm:text-[1.7rem]">{name}</span>
         <span className="font-display text-sm font-bold italic tracking-[.12em] text-gold-light/90 transition-colors group-hover:text-white sm:text-base">{sub}</span>

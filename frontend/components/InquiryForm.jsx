@@ -1,8 +1,10 @@
 'use client';
 import { useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { postInquiry } from '@/lib/api';
 
-export default function InquiryForm({ t, type, gem }) {
+export default function InquiryForm({ t, type, gem: gemProp }) {
+  const gem = gemProp || useSearchParams().get('gem');
   const [state, setState] = useState('idle');
   async function submit(e) {
     e.preventDefault();

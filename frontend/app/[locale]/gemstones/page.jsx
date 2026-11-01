@@ -7,7 +7,6 @@ import { HardnessChart, CompareTable } from '@/components/GuideParts';
 import { stones, shapes, faDigits } from '@/lib/stones';
 import { ui } from '@/lib/ui';
 
-export const dynamic = 'force-dynamic';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;

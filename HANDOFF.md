@@ -3,6 +3,15 @@
 Last updated: 2026-10-30 | Branch: master | Working dir: /home/z/my-project/GIA--Jewelry-main
 Updated by: GLM (z.ai)
 
+## V8 (2026-11-01) — speed, security, page heroes, cookie gate, logo ring
+- Speed: removed `force-dynamic` (all pages are now static/SSG, served from the CDN); filters are client-side (`CatFilter`);
+  no API call unless `NEXT_PUBLIC_API_URL` is set; fonts self-hosted via `@fontsource` (no Google Fonts request);
+  videos re-encoded (8.7 MB -> 1.25 MB, no audio) + posters; videos start when the page is idle.
+- ONE global background video (`lib/site.js` -> `globalVideo`) lives in the layout; `PageHero` = video + poster + framed photo for inner pages (`pageHeroes`).
+- `CookieGate` (consent cookie `gia_consent`), security headers in `next.config.mjs`, metadata/OG/Twitter, `app/icon.svg` + apple icon, `media/images/og-gia.jpg`.
+- Logo: rotating typographic ring around the diamond. Mobile menu: full-screen outlined typed items.
+- Content: `lib/extra.js` (auction/sell/finance FAQs, shop buying notes). Removed dead 3D code (`three` dependency dropped).
+
 ## Vercel (fix, 2026-11-01)
 - Vercel project Root Directory = `frontend`. Config lives in `frontend/vercel.json` (no cd/install/build/output overrides, single region `fra1` — Hobby plan rejects multi-region).
 - Root `vercel.json` removed (it had `cd frontend` commands + 3 regions, which broke the build when Root Directory is already `frontend`).

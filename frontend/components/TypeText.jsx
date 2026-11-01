@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
  *   <TypeText text="The ruby necklace" once />            types once whenever `text` changes
  * Respects prefers-reduced-motion (shows the full text immediately).
  */
-export default function TypeText({ words, text, once = false, speed = 55, hold = 1500, className = '' }) {
+export default function TypeText({ words, text, once = false, speed = 55, hold = 1500, delay = 0, className = '' }) {
   const list = words || [text || ''];
   const key = list.join('|');
   const [out, setOut] = useState('');
@@ -28,10 +28,10 @@ export default function TypeText({ words, text, once = false, speed = 55, hold =
       t = setTimeout(tick, dir === 1 ? speed : speed / 2);
     };
     setOut('');
-    t = setTimeout(tick, 250);
+    t = setTimeout(tick, 250 + delay);
     return () => clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [key, once, speed, hold]);
+  }, [key, once, speed, hold, delay]);
 
   return (
     <span className={className} aria-label={list[0]}>

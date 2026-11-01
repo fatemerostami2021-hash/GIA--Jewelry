@@ -48,8 +48,3 @@ tmp/
 # optimized, slug-named versions live in /media/images/optimized/ and are
 # already committed. See scripts/cleanup-originals.mjs.
 # (Comment out if you want to keep the originals in the repo too.)
-
-# original heavy photos (only the WebP versions are committed)
-frontend/public/media/images/hero/*.png
-frontend/public/media/images/gemstone/
-frontend/public/media/images/gemstone-web/

@@ -11,12 +11,13 @@
     "vercel-build": "next build"
   },
   "dependencies": {
+    "@fontsource/playfair-display": "^5.3.0",
+    "@fontsource/vazirmatn": "^5.3.0",
     "gsap": "^3.12.5",
     "next": "^15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "swiper": "^11.2.10",
-    "three": "^0.170.0"
+    "swiper": "^11.2.10"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0",

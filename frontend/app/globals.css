@@ -197,3 +197,13 @@ body { font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
 .gia-slider .swiper-pagination-bullet { background: rgba(255,255,255,.5); opacity: 1; width: 9px; height: 9px; }
 .gia-slider .swiper-pagination-bullet-active { background: #d4af37; width: 26px; border-radius: 9999px; box-shadow: 0 0 12px rgba(212,175,55,.7); }
 @media (max-width: 640px) { .gia-slider .swiper-button-next, .gia-slider .swiper-button-prev { display: none; } }
+
+/* v8 — mobile menu (outlined, typed), logo ring, cookie dialog */
+.menu-outline { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.1rem, 10vw, 3.2rem); line-height: 1.15; color: transparent; -webkit-text-stroke: 1.4px #d4af37; transition: color .3s ease, -webkit-text-stroke-color .3s ease, transform .3s ease; }
+.menu-outline:hover, .menu-outline:focus-visible, .menu-outline.is-active { color: #f2d98a; -webkit-text-stroke-color: transparent; transform: translateX(6px); }
+[dir='rtl'] .menu-outline:hover, [dir='rtl'] .menu-outline.is-active { transform: translateX(-6px); }
+@keyframes ringSpin { to { transform: rotate(360deg); } }
+.logo-ring { animation: ringSpin 26s linear infinite; }
+@keyframes cookieIn { from { opacity: 0; transform: translateY(24px) scale(.96); } to { opacity: 1; transform: none; } }
+.cookie-in { animation: cookieIn .5s cubic-bezier(.2,.8,.2,1) both; }
+@media (prefers-reduced-motion: reduce) { .logo-ring, .cookie-in { animation: none !important; } }

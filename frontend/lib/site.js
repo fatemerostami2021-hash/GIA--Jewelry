@@ -40,3 +40,21 @@ export const labs = [
   { name: "Christie's", url: 'https://www.christies.com', en: 'Auction house — Blue Belle of Asia and Rockefeller Emerald sales.', fa: 'خانهٔ مزایده — فروش بلو بل و زمرد راکفلر.' },
   { name: 'De Beers Group', url: 'https://www.debeersgroup.com', en: 'Miner of the rough diamond behind the Pink Star.', fa: 'استخراج‌کنندهٔ الماس خام پینک استار.' },
 ];
+
+// ONE video plays behind every page, continuously (it lives in the layout, so it never restarts when you navigate).
+export const globalVideo = '/media/videos/reel-2.mp4';
+export const globalPoster = '/media/videos/reel-2-poster.webp';
+
+// Hero of each inner page: a full-width video, a poster frame, and an optional framed photo on the side.
+// Swap files here (put new ones in public/media/videos and public/media/images/hero).
+const H = (n, photo) => ({ video: `/media/videos/reel-${n}.mp4`, poster: `/media/videos/reel-${n}-poster.webp`, photo: photo ? `/media/images/hero/${photo}.webp` : null });
+export const pageHeroes = {
+  shop: H(1, 'ruby-showcase-hero'),
+  auctions: H(3, 'emerald-gilded-salon'),
+  'private-sales': H(2, 'ruby-gold-velvet'),
+  sell: H(1, 'royal-blue-sapphire'),
+  finance: H(2, 'amethyst-glamour'),
+  labs: H(3, 'ruby-showcase-hero'),
+  contact: H(2, 'amethyst-glamour'),
+  gemstones: H(3, 'amethyst-glamour'),
+};

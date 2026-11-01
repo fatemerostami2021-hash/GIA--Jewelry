@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import Logo from './Logo';
 import SocialIcons from './SocialIcons';
 import MegaMenu from './MegaMenu';
+import TypeText from './TypeText';
 import GemIcon from './GemIcon';
 import { site } from '@/lib/site';
 import { stones } from '@/lib/stones';
@@ -136,23 +137,28 @@ export default function Header({ locale, t }) {
         </div>
       )}
 
-      {/* ===== mobile drawer ===== */}
+      {/* ===== mobile menu: large outlined, typed items ===== */}
       {open && (
-        <nav className="max-h-[80vh] overflow-y-auto border-t border-gold/20 bg-ink/97 px-5 py-6 text-base font-bold xl:hidden">
-          <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-            <a href={site.tel} dir="ltr" className="font-black text-gold-light">{site.phone}</a>
-            <SocialIcons />
-          </div>
-          <div className="flex flex-col gap-4">
-            {[...primary, ...secondary].map((k) => (
-              <Link key={k} href={href(k)} onClick={() => setOpen(false)} className={isActive(k) ? 'text-gold-light' : 'text-lilac/85'}>{label(k)}</Link>
+        <nav className="fixed inset-x-0 bottom-0 top-[110px] z-40 overflow-y-auto bg-ink/98 px-6 pb-10 pt-6 md:top-[112px] xl:hidden" aria-label="Menu">
+          <div className="pointer-events-none absolute -top-10 end-0 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
+          <ul className="relative flex flex-col gap-1">
+            {[...primary, ...secondary].map((k, i) => (
+              <li key={k}>
+                <Link href={href(k)} onClick={() => setOpen(false)} className={`menu-outline block py-2 ${isActive(k) ? 'is-active' : ''}`}>
+                  <TypeText text={label(k)} once speed={38} delay={i * 170} />
+                </Link>
+              </li>
             ))}
+          </ul>
+          <div className="relative mt-6 flex flex-wrap items-center gap-4 border-t border-gold/25 pt-6">
+            <a href={site.tel} dir="ltr" className="text-xl font-black text-gold-light">{site.phone}</a>
+            <SocialIcons size="h-10 w-10" />
           </div>
-          <p className="mb-2 mt-6 text-xs font-black text-gold">{u.mega.byStone}</p>
-          <div className="flex flex-wrap gap-2">
+          <p className="relative mb-2 mt-7 text-xs font-black text-gold">{u.mega.byStone}</p>
+          <div className="relative flex flex-wrap gap-2">
             {stones.map((s) => (
               <Link key={s.slug} href={`/${locale}/gemstones/${s.slug}`} onClick={() => setOpen(false)} className="flex items-center gap-1.5 rounded-full border border-gold/30 px-3 py-1 text-sm text-lilac/85">
-                <GemIcon hex={s.hex} hex2={s.hex2} size={18} />{s[locale].name.split(' (')[0]}
+                {s.photo ? <img src={s.photo} alt="" className="h-5 w-5 rounded-full object-cover" /> : <GemIcon hex={s.hex} hex2={s.hex2} size={18} />}{s[locale].name.split(' (')[0]}
               </Link>
             ))}
           </div>

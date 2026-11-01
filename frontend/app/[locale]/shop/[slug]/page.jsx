@@ -1,3 +1,5 @@
+import local from '@/lib/gems.json';
+import { locales } from '@/lib/dict';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import DetailTabs from '@/components/DetailTabs';
@@ -5,7 +7,6 @@ import StoneVisual from '@/components/StoneVisual';
 import { getGem, money, num } from '@/lib/api';
 import { dict } from '@/lib/dict';
 
-export const dynamic = 'force-dynamic';
 
 /**
  * Gem detail page (`/shop/[slug]`). Same structure as the Collection detail
@@ -16,6 +17,8 @@ export const dynamic = 'force-dynamic';
  * collection item, so we build the same `c.{short,highlights,summary,
  * description,specs}` shape here from the gem fields before rendering.
  */
+export const generateStaticParams = () => locales.flatMap((locale) => local.map((g) => ({ locale, slug: g.slug })));
+
 export default async function GemPage({ params }) {
   const { locale, slug } = await params;
   const t = dict[locale];
