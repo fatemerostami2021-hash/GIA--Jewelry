@@ -37,7 +37,7 @@ export default async function StonePage({ params }) {
     <div className="mx-auto max-w-6xl px-5 pb-8 pt-36">
       <Link href={`/${locale}/gemstones`} className="text-sm font-black text-gold hover:text-gold-light">← {g.back}</Link>
 
-      <div className="mt-6 grid items-center gap-10 lg:grid-cols-[1fr_1.2fr]">
+      <div className="mt-6 grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.2fr)]">
         <div className="relative grid aspect-square place-items-center overflow-hidden rounded-3xl border border-gold/35 bg-gradient-to-br from-plum via-ink to-black">
           <div className="pointer-events-none absolute inset-8 rounded-full opacity-70 blur-3xl" style={{ background: s.hex }} />
           {s.photo ? (
@@ -48,7 +48,7 @@ export default async function StonePage({ params }) {
         </div>
         <Stagger y={30} stagger={0.14}>
           <p className="mb-3 text-xs font-black tracking-[.35em] text-gold-light rtl:tracking-normal">✦ {g.eyebrow}</p>
-          <h1 className="font-display text-5xl font-black md:text-7xl"><span className="hl">{c.name}</span></h1>
+          <h1 className="font-display text-4xl font-black sm:text-5xl md:text-7xl"><span className="hl">{c.name}</span></h1>
           <p className="mt-4 text-xl font-bold leading-9 text-lilac/90">{c.tag}</p>
           <h2 className="mt-8 font-display text-2xl font-black text-gold-light">{g.aboutTitle}</h2>
           <p className="mt-2 text-base font-bold leading-8 text-lilac/80">{c.about}</p>
@@ -60,7 +60,7 @@ export default async function StonePage({ params }) {
         </Stagger>
       </div>
 
-      <section className="mt-16 grid gap-8 lg:grid-cols-[1.4fr_1fr]">
+      <section className="mt-16 grid gap-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
         <div className="rounded-3xl border border-gold/30 bg-ink/60 p-6 backdrop-blur md:p-8">
           <h2 className="font-display text-2xl font-black text-gold-light">{g.factsTitle}</h2>
           <dl className="mt-5 grid gap-px overflow-hidden rounded-2xl border border-gold/20 bg-gold/20">

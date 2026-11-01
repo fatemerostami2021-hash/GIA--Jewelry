@@ -16,7 +16,7 @@ export default async function CollectionPage({ params }) {
         <p className="mb-3 text-xs font-bold uppercase tracking-[.3em] text-gold-light rtl:tracking-normal">
           ✦ {locale === 'fa' ? 'کالکشن کامل' : 'Full catalogue'}
         </p>
-        <h1 className="font-display text-5xl font-black md:text-7xl">
+        <h1 className="font-display text-4xl font-black sm:text-5xl md:text-7xl">
           <span className="hl">{t.collection.title}</span>
         </h1>
         <p className="mt-5 max-w-2xl text-lg font-bold leading-8 text-lilac/80">{t.collection.intro}</p>

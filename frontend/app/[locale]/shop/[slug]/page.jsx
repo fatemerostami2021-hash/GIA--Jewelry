@@ -61,7 +61,7 @@ export default async function GemPage({ params }) {
   const specs = (rows) => (
     <dl>
       {rows.map(([k, v]) => (
-        <div key={k} className="grid grid-cols-[8.5rem_1fr] gap-4 border-b border-gold/15 py-3 last:border-0 rtl:grid-cols-[1fr_8.5rem]">
+        <div key={k} className="grid grid-cols-[6.5rem_minmax(0,1fr)] gap-3 sm:grid-cols-[8.5rem_minmax(0,1fr)] sm:gap-4 border-b border-gold/15 py-3 last:border-0 rtl:grid-cols-[minmax(0,1fr)_6.5rem] sm:rtl:grid-cols-[minmax(0,1fr)_8.5rem]">
           <dt className="text-lilac/60">{k}</dt>
           <dd className="font-bold">{v}</dd>
         </div>

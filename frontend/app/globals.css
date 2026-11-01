@@ -199,7 +199,7 @@ body { font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
 @media (max-width: 640px) { .gia-slider .swiper-button-next, .gia-slider .swiper-button-prev { display: none; } }
 
 /* v8 — mobile menu (outlined, typed), logo ring, cookie dialog */
-.menu-outline { font-family: var(--font-display); font-weight: 900; font-size: clamp(2.1rem, 10vw, 3.2rem); line-height: 1.15; color: transparent; -webkit-text-stroke: 1.4px #d4af37; transition: color .3s ease, -webkit-text-stroke-color .3s ease, transform .3s ease; }
+.menu-outline { font-family: var(--font-display); font-weight: 900; font-size: min(1.75rem, 4.6vh); line-height: 1.25; padding: .35vh 0; color: rgba(212,175,55,.08); -webkit-text-stroke: 1px #f2d98a; transition: color .3s ease, -webkit-text-stroke-color .3s ease, transform .3s ease; }
 .menu-outline:hover, .menu-outline:focus-visible, .menu-outline.is-active { color: #f2d98a; -webkit-text-stroke-color: transparent; transform: translateX(6px); }
 [dir='rtl'] .menu-outline:hover, [dir='rtl'] .menu-outline.is-active { transform: translateX(-6px); }
 @keyframes ringSpin { to { transform: rotate(360deg); } }
@@ -207,3 +207,11 @@ body { font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
 @keyframes cookieIn { from { opacity: 0; transform: translateY(24px) scale(.96); } to { opacity: 1; transform: none; } }
 .cookie-in { animation: cookieIn .5s cubic-bezier(.2,.8,.2,1) both; }
 @media (prefers-reduced-motion: reduce) { .logo-ring, .cookie-in { animation: none !important; } }
+
+/* v8.3 — mobile safety nets: grids can shrink, nothing may widen the page */
+@layer base {
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  html, body { max-width: 100%; overflow-x: clip; }
+  img, video, canvas { max-width: 100%; }
+  h1, h2, h3 { overflow-wrap: anywhere; }
+}

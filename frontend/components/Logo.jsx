@@ -25,9 +25,9 @@ export default function Logo({ name = 'GIA', sub = 'Jewelry' }) {
     return () => ctx.revert();
   }, []);
   return (
-    <span ref={ref} className="logo group flex items-center gap-2.5" aria-label={`${name} ${sub}`}>
-      <span className="relative grid h-[58px] w-[58px] shrink-0 place-items-center">
-        <svg viewBox="0 0 64 64" className="logo-ring absolute inset-0 h-full w-full" aria-hidden>
+    <span ref={ref} dir="ltr" className="logo group flex items-center gap-1.5 sm:gap-2.5" aria-label={`${name} ${sub}`}>
+      <span className="relative grid h-12 w-12 shrink-0 place-items-center sm:h-[58px] sm:w-[58px]">
+        <svg viewBox="0 0 64 64" direction="ltr" style={{ direction: 'ltr', unicodeBidi: 'bidi-override' }} className="logo-ring absolute inset-0 h-full w-full" aria-hidden>
           <defs><path id={`${rid}c`} d="M32 32m-25 0a25 25 0 1 1 50 0a25 25 0 1 1-50 0" /></defs>
           <text fill="#d4af37" fontSize="5.4" fontWeight="700" letterSpacing=".6" fontFamily="Georgia, serif">
             <textPath href={`#${rid}c`} textLength="154" lengthAdjust="spacing">GIA JEWELRY ✦ FINE GEMSTONES ✦ </textPath>
@@ -50,8 +50,8 @@ export default function Logo({ name = 'GIA', sub = 'Jewelry' }) {
         </svg>
       </span>
       <span dir="ltr" className="flex items-baseline gap-1.5 leading-none">
-        <span className="logo-word font-display text-2xl font-black tracking-[.22em] sm:text-[1.7rem]">{name}</span>
-        <span className="font-display text-sm font-bold italic tracking-[.12em] text-gold-light/90 transition-colors group-hover:text-white sm:text-base">{sub}</span>
+        <span className="logo-word font-display text-xl font-black tracking-[.18em] sm:text-[1.7rem] sm:tracking-[.22em]">{name}</span>
+        <span className="font-display text-xs font-bold italic tracking-[.1em] text-gold-light/90 sm:text-base transition-colors group-hover:text-white sm:text-base">{sub}</span>
       </span>
     </span>
   );

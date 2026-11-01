@@ -23,13 +23,13 @@ export function HardnessChart({ locale }) {
   }, []);
   const sorted = [...stones].sort((a, b) => b.mohs[1] - a.mohs[1]);
   return (
-    <div ref={ref} className="rounded-3xl border border-gold/30 bg-ink/60 p-6 backdrop-blur md:p-8">
+    <div ref={ref} className="min-w-0 rounded-3xl border border-gold/30 bg-ink/60 p-6 backdrop-blur md:p-8">
       <h3 className="font-display text-2xl font-black text-gold-light">{g.hardness}</h3>
       <p className="mt-1 text-sm font-bold text-lilac/65">{g.hardnessSub}</p>
       <ul className="mt-6 grid gap-3">
         {sorted.map((s, i) => (
           <li key={s.slug}>
-            <Link href={`/${locale}/gemstones/${s.slug}`} className="group grid grid-cols-[7.5rem_1fr_3rem] items-center gap-3 text-sm font-bold">
+            <Link href={`/${locale}/gemstones/${s.slug}`} className="group grid grid-cols-[6rem_minmax(0,1fr)_2.2rem] items-center gap-2 sm:grid-cols-[7.5rem_minmax(0,1fr)_3rem] sm:gap-3 text-sm font-bold">
               <span className="flex items-center gap-2 text-lilac/85 group-hover:text-gold-light"><GemIcon hex={s.hex} hex2={s.hex2} size={20} />{nm(s, locale)}</span>
               <span className="relative h-3 overflow-hidden rounded-full bg-white/10">
                 <span
@@ -67,7 +67,7 @@ export function CompareTable({ locale }) {
   ];
   const chosen = sel.map((k) => stones.find((s) => s.slug === k)).filter(Boolean);
   return (
-    <div className="rounded-3xl border border-gold/30 bg-ink/60 p-6 backdrop-blur md:p-8">
+    <div className="min-w-0 rounded-3xl border border-gold/30 bg-ink/60 p-6 backdrop-blur md:p-8">
       <h3 className="font-display text-2xl font-black text-gold-light">{g.compare}</h3>
       <p className="mt-1 text-sm font-bold text-lilac/65">{g.compareHint}</p>
       <div className="mt-5 flex flex-wrap gap-2" role="group" aria-label={g.compare}>

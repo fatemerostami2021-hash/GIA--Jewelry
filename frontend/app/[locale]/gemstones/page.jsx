@@ -22,7 +22,7 @@ export default async function Gemstones({ params }) {
     <div className="mx-auto max-w-7xl px-5 pb-8 pt-36">
       <Stagger y={30} stagger={0.15}>
         <p className="mb-3 text-xs font-black tracking-[.35em] text-gold-light rtl:tracking-normal">✦ {g.eyebrow}</p>
-        <h1 className="font-display text-5xl font-black md:text-7xl"><span className="hl">{g.title}</span></h1>
+        <h1 className="font-display text-4xl font-black sm:text-5xl md:text-7xl"><span className="hl">{g.title}</span></h1>
         <p className="mt-5 min-h-[2rem] font-display text-2xl font-black text-gold-light">
           <TypeText words={ui[locale].typing} />
         </p>

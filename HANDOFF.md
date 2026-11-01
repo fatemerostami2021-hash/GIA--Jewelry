@@ -3,6 +3,23 @@
 Last updated: 2026-10-30 | Branch: master | Working dir: /home/z/my-project/GIA--Jewelry-main
 Updated by: GLM (z.ai)
 
+## V8.4 (2026-11-01)
+- Home hero text restored to the original (centre for buying/selling jewellery & gemstones). The woman's-beauty sentences now sit ON the hero slider (`ui.heroLines`, typed per slide, in `HeroBanner.jsx`).
+
+## V8.3 (2026-11-01)
+- Header: back to max-w-7xl container; both rows `dir=ltr` so the logo (gem first, then text) sits at the same side in EN and FA; nav keeps RTL order in FA. Cart icon hidden on very small phones; smaller logo on phones.
+- Mobile: gemstone page overflow fixed (grid tracks `minmax(0,1fr)`, `min-w-0` on chart/compare), responsive h1 sizes, base-layer `.grid` default column, `overflow-x: clip` on html/body.
+
+## V8.2 (2026-11-01)
+- Mobile menu was invisible: `<header>` has backdrop-filter, which traps `position:fixed` children -> menu moved OUT of the header (fragment sibling).
+- Header rows are full-width (logo at the far screen edge in EN and FA). HeroBanner: no gap under the header (pt 70px mobile / 111px md+), object-cover, no blur bars/gradient. Home Hero: solid bg-ink wrapper, no overlays on the video, equal-height text/video frames.
+- Auctions hero video = `public/media/videos/auction-hero.mp4` (made by `scripts/prepare-auction-video.mjs` from Creating_3D_jewelry_experience_adae3e6e.mp4). ScrollCompanion only >= 2xl.
+
+## V8.1 (2026-11-01)
+- Global background VIDEO removed; site background = `public/media/images/bg-geo.webp` (geometric purple/gold, cropped from the user's screenshot — replace with the original file for max quality).
+- Home hero: text in a framed glass card; on mobile video and text sit side by side; new buy/sell + woman's-beauty copy (dict.hero).
+- Logo always `dir=ltr` (ring typography was missing in /fa). Mobile menu: smaller outlined text, fits the screen without scrolling, closes on tap outside / on link.
+
 ## V8 (2026-11-01) — speed, security, page heroes, cookie gate, logo ring
 - Speed: removed `force-dynamic` (all pages are now static/SSG, served from the CDN); filters are client-side (`CatFilter`);
   no API call unless `NEXT_PUBLIC_API_URL` is set; fonts self-hosted via `@fontsource` (no Google Fonts request);

@@ -50,7 +50,7 @@ export const globalPoster = '/media/videos/reel-2-poster.webp';
 const H = (n, photo) => ({ video: `/media/videos/reel-${n}.mp4`, poster: `/media/videos/reel-${n}-poster.webp`, photo: photo ? `/media/images/hero/${photo}.webp` : null });
 export const pageHeroes = {
   shop: H(1, 'ruby-showcase-hero'),
-  auctions: H(3, 'emerald-gilded-salon'),
+  auctions: { video: '/media/videos/auction-hero.mp4', poster: '/media/videos/reel-3-poster.webp', photo: '/media/images/hero/emerald-gilded-salon.webp' },
   'private-sales': H(2, 'ruby-gold-velvet'),
   sell: H(1, 'royal-blue-sapphire'),
   finance: H(2, 'amethyst-glamour'),

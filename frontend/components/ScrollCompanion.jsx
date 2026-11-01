@@ -41,7 +41,7 @@ export default function ScrollCompanion({ href, label }) {
   return (
     <div
       ref={box}
-      className="pointer-events-none fixed start-2 top-[120px] z-40 hidden opacity-0 sm:block md:start-4 [perspective:800px]"
+      className="pointer-events-none fixed start-2 top-[120px] z-40 hidden opacity-0 2xl:block [perspective:800px]"
       style={{ opacity: 0 }}
     >
       <div className="group pointer-events-auto relative h-[260px] w-[170px] md:h-[360px] md:w-[240px] lg:h-[400px] lg:w-[270px]">

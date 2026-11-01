@@ -33,6 +33,7 @@ export default function Header({ locale, t }) {
   const show = (k) => { clearTimeout(timer.current); setMenu(k); };
   const hide = () => { clearTimeout(timer.current); timer.current = setTimeout(() => setMenu(null), 160); };
   useEffect(() => { setMenu(null); setOpen(false); }, [path]);
+  useEffect(() => { document.documentElement.style.overflow = open ? 'hidden' : ''; return () => { document.documentElement.style.overflow = ''; }; }, [open]);
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && setMenu(null);
     window.addEventListener('keydown', onKey);
@@ -51,10 +52,11 @@ export default function Header({ locale, t }) {
   );
 
   return (
+    <>
     <header className="fixed inset-x-0 top-0 z-50 bg-ink/90 backdrop-blur-md" onMouseLeave={hide}>
       {/* ===== Row 1 — phone · socials · language ===== */}
       <div className="hidden border-b border-gold/20 bg-black/40 text-xs md:block">
-        <div className="mx-auto flex h-10 max-w-7xl items-center justify-between gap-4 px-5 text-lilac/80">
+        <div dir="ltr" className="mx-auto flex h-10 max-w-7xl items-center justify-between gap-4 px-5 text-lilac/80">
           <a href={site.tel} dir="ltr" className="phone-link flex items-center gap-2 font-bold text-gold-light transition-colors hover:text-white" aria-label={u.top.call}>
             <svg viewBox="0 0 24 24" className="phone-ring h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
@@ -75,12 +77,12 @@ export default function Header({ locale, t }) {
       <div className="h-0.5 w-full bg-gradient-to-r from-transparent via-gold/70 to-transparent" />
 
       {/* ===== Row 2 — logo + nav ===== */}
-      <div className="mx-auto flex h-[68px] max-w-7xl items-center justify-between gap-4 px-5">
+      <div dir="ltr" className="mx-auto flex h-[68px] max-w-7xl items-center justify-between gap-3 px-4 sm:gap-4 sm:px-5">
         <Link href={`/${locale}`} className="flex items-center" aria-label="GIA Jewelry">
           <Logo name="GIA" sub="Jewelry" />
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm font-bold xl:flex" aria-label="Main">
+        <nav dir={locale === 'fa' ? 'rtl' : 'ltr'} className="hidden items-center gap-6 text-sm font-bold xl:flex" aria-label="Main">
           {primary.map((k) =>
             k === 'gemstones' ? (
               <div key={k} onMouseEnter={() => show('gemstones')} className="relative">
@@ -115,8 +117,8 @@ export default function Header({ locale, t }) {
           </div>
         </nav>
 
-        <div className="flex items-center gap-3">
-          <Link href={`/${locale}/collection`} aria-label="collection" className="grid h-9 w-9 place-items-center rounded-full border border-gold/40 text-gold-light transition-all hover:bg-gold/15">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link href={`/${locale}/collection`} aria-label="collection" className="hidden h-9 w-9 place-items-center sm:grid rounded-full border border-gold/40 text-gold-light transition-all hover:bg-gold/15">
             <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
               <circle cx="9" cy="21" r="1" /><circle cx="20" cy="21" r="1" />
               <path d="M1 1h4l2.680 13.390a2 2 0 0 0 2 1.610h9.720a2 2 0 0 0 2-1.610L23 6H6" />
@@ -137,33 +139,30 @@ export default function Header({ locale, t }) {
         </div>
       )}
 
-      {/* ===== mobile menu: large outlined, typed items ===== */}
+    </header>
+      {/* ===== mobile menu: opens full, never scrolls, closes on any tap outside the links ===== */}
       {open && (
-        <nav className="fixed inset-x-0 bottom-0 top-[110px] z-40 overflow-y-auto bg-ink/98 px-6 pb-10 pt-6 md:top-[112px] xl:hidden" aria-label="Menu">
-          <div className="pointer-events-none absolute -top-10 end-0 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
-          <ul className="relative flex flex-col gap-1">
+        <nav
+          onClick={(e) => { if (e.target === e.currentTarget || e.target.dataset.close) setOpen(false); }}
+          className="fixed inset-x-0 bottom-0 top-[70px] z-40 flex flex-col justify-center overflow-hidden bg-ink/[.97] px-7 md:top-[112px] xl:hidden"
+          aria-label="Menu"
+        >
+          <div data-close="1" className="pointer-events-none absolute -top-10 end-0 h-64 w-64 rounded-full bg-gold/10 blur-3xl" />
+          <ul className="relative flex flex-col" data-close="1">
             {[...primary, ...secondary].map((k, i) => (
-              <li key={k}>
-                <Link href={href(k)} onClick={() => setOpen(false)} className={`menu-outline block py-2 ${isActive(k) ? 'is-active' : ''}`}>
-                  <TypeText text={label(k)} once speed={38} delay={i * 170} />
+              <li key={k} data-close="1">
+                <Link href={href(k)} onClick={() => setOpen(false)} className={`menu-outline inline-block ${isActive(k) ? 'is-active' : ''}`}>
+                  <TypeText text={label(k)} once speed={32} delay={i * 120} />
                 </Link>
               </li>
             ))}
           </ul>
-          <div className="relative mt-6 flex flex-wrap items-center gap-4 border-t border-gold/25 pt-6">
-            <a href={site.tel} dir="ltr" className="text-xl font-black text-gold-light">{site.phone}</a>
-            <SocialIcons size="h-10 w-10" />
-          </div>
-          <p className="relative mb-2 mt-7 text-xs font-black text-gold">{u.mega.byStone}</p>
-          <div className="relative flex flex-wrap gap-2">
-            {stones.map((s) => (
-              <Link key={s.slug} href={`/${locale}/gemstones/${s.slug}`} onClick={() => setOpen(false)} className="flex items-center gap-1.5 rounded-full border border-gold/30 px-3 py-1 text-sm text-lilac/85">
-                {s.photo ? <img src={s.photo} alt="" className="h-5 w-5 rounded-full object-cover" /> : <GemIcon hex={s.hex} hex2={s.hex2} size={18} />}{s[locale].name.split(' (')[0]}
-              </Link>
-            ))}
+          <div className="relative mt-[2.2vh] flex flex-wrap items-center gap-3 border-t border-gold/25 pt-[2.2vh]" data-close="1">
+            <a href={site.tel} dir="ltr" className="text-lg font-black text-gold-light">{site.phone}</a>
+            <SocialIcons size="h-9 w-9" />
           </div>
         </nav>
       )}
-    </header>
+    </>
   );
 }
