@@ -3,6 +3,11 @@
 Last updated: 2026-10-30 | Branch: master | Working dir: /home/z/my-project/GIA--Jewelry-main
 Updated by: GLM (z.ai)
 
+## Vercel (fix, 2026-11-01)
+- Vercel project Root Directory = `frontend`. Config lives in `frontend/vercel.json` (no cd/install/build/output overrides, single region `fra1` — Hobby plan rejects multi-region).
+- Root `vercel.json` removed (it had `cd frontend` commands + 3 regions, which broke the build when Root Directory is already `frontend`).
+- In Vercel Project Settings > Build & Development: leave Install/Build/Output overrides OFF.
+
 ## V7.2 — JewelStage (pinned 3D film) REMOVED at user request; replaced by `components/ScrollCompanion.jsx`
 (small side window with `ruby-scroll-companion.webp` that travels hero->footer and pans across the picture on scroll).
 
